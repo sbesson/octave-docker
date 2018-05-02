@@ -3,10 +3,11 @@
 # exit if a command fails
 set -e
 
-apt-get update
-apt-get install -y software-properties-common
-apt-get install -y octave
-apt-get remove -y software-properties-common
+apt-get update && \
+    apt-get install -y software-properties-common && \
+    apt-get install -y octave && \
+    apt-get remove -y software-properties-common && \
+    rm -rf /var/lib/apt/lists/*
 
 # cleanup package manager
 apt-get autoclean && apt-get clean
